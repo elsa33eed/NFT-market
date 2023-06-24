@@ -4,7 +4,7 @@
 
   <p>A <b>PNFT Market</b> website is an online platform that allows users to buy images for personal use. The website provides an easy-to-use interface for searching, comparing, and reserving NFT from a wide selection of images that vary in design, size, and price.</p>
 
-👉 Live Demo: <a href='https://pnft-market.vercel.app/'>Live Demo</a>
+👉 Live Demo: <a href='https://pnft-market.vercel.app/' target="_blank">Live Demo</a>
 
 <h3>Build with:</h3>
 
