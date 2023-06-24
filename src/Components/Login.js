@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import Logo from "../assets/Frame.png";
 import PageImage from "../assets/Image-page.png";
 import googleIcon from "../assets/Google.svg";
+import { useRef } from "react";
 
 export default function Login() {
   const [type, setType] = useState("password");
@@ -10,9 +11,8 @@ export default function Login() {
   const {
     register,
     handleSubmit,
-    formState: { error },
+    formState: { errors },
   } = useForm();
-
   const handleClick = () => {
     if (type === "password") {
       setIcon("fa-regular fa-eye");
@@ -22,9 +22,20 @@ export default function Login() {
       setType("password");
     }
   };
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  const ref = useRef(null);
+
+  const handleXClick = () => {
+    // 👇️ reset input field's value
+    ref.current.value = "";
+  };
+
   return (
     <section className="login p-4">
-      <div className="col-6">
+      <div className="content-form col-6">
         <div className="logo d-flex align-items-center">
           <img src={Logo} alt="Logo" />
           <p className="m-0 ms-2">PNFT Market</p>
@@ -38,18 +49,31 @@ export default function Login() {
                   Please fill your detail to access your account.
                 </p>
               </div>
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="email mb-3 p-relative">
                   <label className="d-block text-start mb-1" htmlFor="email">
                     email
                   </label>
                   <input
                     id="email"
-                    {...register("email")}
+                    name="email"
                     type="email"
+                    ref={ref}
                     placeholder="example@example.com"
+                    {...register("email", {
+                      required: true,
+                      pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                    })}
                   />
-                  <i class="fa-regular fa-circle-xmark"></i>
+                  <span onClick={handleXClick}>
+                    <i class="fa-regular fa-circle-xmark"></i>
+                  </span>
+                  {errors.email?.type === "required" && (
+                    <p className="errMsg">*Email is required.</p>
+                  )}
+                  {errors.email?.type === "pattern" && (
+                    <p className="errMsg">*Email is not valid.</p>
+                  )}
                 </div>
                 <div className="password mb-1">
                   <label className="d-block text-start mb-1" htmlFor="pass">
@@ -58,9 +82,19 @@ export default function Login() {
                   <input
                     className="d-block"
                     id="pass"
+                    {...register("password", { required: true, minLength: 8 })}
                     type={type}
+                    name="password"
                     placeholder="••••••••"
                   />
+                  {errors.password?.type === "required" && (
+                    <p className="errMsg">*Password is required.</p>
+                  )}
+                  {errors.password?.type === "minLength" && (
+                    <p className="errMsg">
+                      *Password should be at-least 8 characters.
+                    </p>
+                  )}
                   <span onClick={handleClick}>
                     <i className={icon}></i>
                   </span>
@@ -89,9 +123,9 @@ export default function Login() {
           </div>
         </div>
       </div>
-      <div className="col-6">
+      <div className="content-image col-6 d-flex align-items-center justify-content-center">
         <div className="image">
-          <img className="img-fluid" src={PageImage} alt="Content Image"></img>
+          <img className="img-fluid " src={PageImage} alt="Content Image"></img>
         </div>
       </div>
     </section>

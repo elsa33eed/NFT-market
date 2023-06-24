@@ -22,6 +22,7 @@ body {
   align-items: center;
   text-align: center;
 }
+
 /* start login page */
 .login {
   max-width: 978px;
@@ -31,6 +32,16 @@ body {
   border-radius: 5px;
   box-shadow: 1px 3px 10px var(--gray-color);
   /* background-color: #fcfcff; */
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .login .content-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
 }
 .login .content .form .info p {
   color: var(--third-gray-color);
@@ -68,6 +79,14 @@ body {
   width: 12px;
   border-radius: 4px;
   border: 1px solid var(--accent-1, #d0d5dd);
+}
+/* style error messages */
+.login form .errMsg {
+  font-size: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: red;
 }
 .login form .options .checkbox label {
   font-size: 10px;
@@ -115,11 +134,21 @@ body {
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
 }
+@media (max-width: 430px) {
+  .login form .btn-google img {
+    left: 22%;
+  }
+}
 .login form p {
   font-size: 12px;
 }
 .login form p a {
   text-decoration: none;
   color: var(--main-color);
+}
+@media (max-width: 768px) {
+  .login .content-image img {
+    display: none;
+  }
 }
 /* end login page */
