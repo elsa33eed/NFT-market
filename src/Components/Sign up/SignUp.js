@@ -29,7 +29,18 @@ export default function SignUp() {
       setIcon("fa-regular fa-eye");
     }
   };
-
+  // state to icon confirm password
+  const [conType, setConType] = useState("password");
+  const [conIcon, setConIcon] = useState("fa-regular fa-eye");
+  const handleClickConfirm = () => {
+    if (conType === "password") {
+      setConType("text");
+      setConIcon("fa-regular fa-eye-slash");
+    } else {
+      setConType("password");
+      setConIcon("fa-regular fa-eye");
+    }
+  };
   return (
     <section className="sign-up">
       <div className="container-fluid">
@@ -131,13 +142,13 @@ export default function SignUp() {
                   </label>
                   <input
                     className="mb-4"
-                    type={type}
+                    type={conType}
                     id="cnf-pwd"
                     {...register("cnfPwd", { required: true, minLength: 8 })}
                     placeholder="••••••••"
                   />
-                  <span onClick={handleClick}>
-                    <i class={icon}></i>
+                  <span onClick={handleClickConfirm}>
+                    <i class={conIcon}></i>
                   </span>
                   {errors.cnfPwd?.type === "required" && (
                     <p className="errMsg">*Password is required.</p>
