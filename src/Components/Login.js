@@ -25,14 +25,6 @@ export default function Login() {
   const onSubmit = (data) => {
     console.log(data);
   };
-
-  const ref = useRef(null);
-
-  const handleXClick = () => {
-    // 👇️ reset input field's value
-    ref.current.value = "";
-  };
-
   return (
     <section className="login p-4">
       <div className="content-form col-6">
@@ -58,16 +50,12 @@ export default function Login() {
                     id="email"
                     name="email"
                     type="email"
-                    ref={ref}
                     placeholder="example@example.com"
                     {...register("email", {
                       required: true,
                       pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
                     })}
                   />
-                  <span onClick={handleXClick}>
-                    <i class="fa-regular fa-circle-xmark"></i>
-                  </span>
                   {errors.email?.type === "required" && (
                     <p className="errMsg">*Email is required.</p>
                   )}
