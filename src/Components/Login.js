@@ -116,7 +116,7 @@ export default function Login() {
                   Sign in with Google
                 </button>
                 <p className="text-center">
-                  Don’t have an account? <a href="#">Sign up</a>
+                  Don’t have an account? <a href="/SignUp">Sign up</a>
                 </p>
               </form>
             </div>

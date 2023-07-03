@@ -45,7 +45,7 @@ export default function SignUp() {
     <section className="sign-up">
       <div className="container-fluid">
         <div className="content d-flex align-items-center">
-          <div className="form-content col-6 mb-4 ">
+          <div className="form-content col-6 ">
             <div className="logo d-flex align-items-center mb-4">
               <img src={Logo} alt="Logo" />
               <p className="m-0 ms-2">PNFT Market</p>
@@ -164,6 +164,9 @@ export default function SignUp() {
                     Sign Up With Google
                   </button>
                 </div>
+                <p className="have-acc text-center">
+                  Already Have An Account? <a href="/">Sign In</a>
+                </p>
               </form>
             </div>
           </div>
