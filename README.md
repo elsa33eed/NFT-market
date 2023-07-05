@@ -16,6 +16,10 @@
 <h3 align='center'>Login Page 🏡</h3>
 
 <div align='center'>
-<img src='./src/assets/Sign-In.png'/>
+<img src='./src/assets/SignIn.png'/>
+</div>
+<h3 align='center'>Sign Up Page 🏡</h3>
 
+<div align='center'>
+<img src='./src/assets/SignUp.png'/>
 </div>
