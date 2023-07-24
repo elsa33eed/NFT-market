@@ -2,7 +2,7 @@
 
 <h2>About the project</h2>
 
-  <p>A <b>PNFT Market</b> website is an online platform that allows users to buy images for personal use. This is a Sign in and Sign up page for PNFT Market. A NFT is Non-fungible token. “Non-fungible” more or less means that it’s unique and can’t be replaced with something else.</p>
+  <p>A <b>PNFT Market</b> is website will be a login ans sign up website for the PNFT Market, a platform for buying and selling non-fungible tokens (NFTs). The website will be built using React, a popular JavaScript library for building user interfaces.
 
 👉 Live Demo: <a href='https://pnft-market.vercel.app/' target="_blank">Live Demo</a>
 
